@@ -1,0 +1,19 @@
+{
+  "name": "xtal-text-area-md",
+  "version": "0.0.0",
+  "description": "material text area",
+  "main": "xtal-text-area-md.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahrus/xtal-text-area-md.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahrus/xtal-text-area-md/issues"
+  },
+  "homepage": "https://github.com/bahrus/xtal-text-area-md#readme"
+}
