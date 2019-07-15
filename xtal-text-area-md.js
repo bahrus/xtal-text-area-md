@@ -193,10 +193,10 @@ export class XtalTextAreaMD extends XtalTextInputMD {
     get mainTemplate() {
         return mainTemplate;
     }
-    get ObjectValue() {
+    get objectValue() {
         return this._objectValue;
     }
-    set ObjectValue(nv) {
+    set objectValue(nv) {
         this._objectValue = nv;
         this.de("object-value", {
             objectValue: nv
@@ -207,7 +207,7 @@ export class XtalTextAreaMD extends XtalTextInputMD {
         this.value = val;
         if (this._coerceToJSON) {
             try {
-                this.ObjectValue = JSON.parse(val);
+                this.objectValue = JSON.parse(val);
             }
             catch (e) { }
         }
