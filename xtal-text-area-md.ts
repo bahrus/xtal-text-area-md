@@ -1,4 +1,4 @@
-import {XtalTextInputMD} from './xtal-text-input-md.js';
+import {XtalTextInputMD} from 'xtal-text-input-md/xtal-text-input-md.js';
 import { define } from "trans-render/define.js";
 import { createTemplate } from "xtal-element/utils.js";
 const mainTemplate = createTemplate(/* html */`
