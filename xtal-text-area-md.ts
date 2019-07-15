@@ -165,10 +165,61 @@ select.form-element-field {
 
     </style>
 `);
+const coerce_to_json = 'coerce-to-json';
 export class XtalTextAreaMD extends XtalTextInputMD{
     static get is(){return 'xtal-text-area-md';}
+    static get observedAttributes(){
+      return super.observedAttributes.concat([coerce_to_json]);
+    }
+    attributeChangedCallback(n: string, ov: string, nv: string){
+      switch(n){
+        case coerce_to_json:
+          this._coerceToJSON = nv !== null;
+          break;
+      }
+      super.attributeChangedCallback(n, ov, nv);
+    }
+    _coerceToJSON = false;
+    get coerceToJSON(){
+      return this._coerceToJSON;
+    }
+    set coerceToJSON(nv){
+      this.attr(coerce_to_json, nv, '');
+    }
     get mainTemplate(){
         return mainTemplate;
+    }
+    _objectValue: object | undefined = undefined;
+    get ObjectValue(){
+      return this._objectValue;
+    }
+    set ObjectValue(nv){
+      this._objectValue = nv;
+      this.de("object-value", {
+        objectValue: nv
+      })
+    }
+    emitEvent() {
+      const val = this.inputElement.value;
+      this.value = val;
+      if(this._coerceToJSON){
+        try{
+          this.ObjectValue = JSON.parse(val);
+        }catch(e){}
+      }
+      this.de("value", {
+        value: val
+      });
+      if (this._options) {
+        const textFld = this._options.textFld;
+        const item = this._options.data.find(item => item[textFld] === val);
+        if (item !== undefined) {
+          this.selection = item;
+          this.de("selection", {
+            value: item
+          });
+        }
+      }
     }
 }
 
