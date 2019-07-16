@@ -8,9 +8,9 @@
     "serve": "node node_modules/xtal-test/serve.js"
   },
   "dependencies": {
-    "trans-render": "0.0.117",
-    "xtal-element": "0.0.63",
-    "xtal-text-input-md": "0.0.3"
+    "trans-render": "0.0.126",
+    "xtal-element": "0.0.76",
+    "xtal-text-input-md": "0.0.4"
   },
   "devDependencies": {
     "xtal-test": "0.0.19"
