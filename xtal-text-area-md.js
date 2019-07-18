@@ -171,6 +171,7 @@ export class XtalTextAreaMD extends XtalTextInputMD {
         super(...arguments);
         this._coerceToJSON = false;
         this._objectValue = undefined;
+        this._tempVal = undefined;
     }
     static get is() { return 'xtal-text-area-md'; }
     static get observedAttributes() {
@@ -186,7 +187,8 @@ export class XtalTextAreaMD extends XtalTextInputMD {
     }
     afterInitRenderCallback() {
         if (this.coerceToJSON) {
-            const val = this.inputElement ? this.inputElement.value : this._value;
+            const val = this.inputElement ? this.inputElement.value : (this._value || this._tempVal);
+            this._tempVal = undefined;
             try {
                 this.objectValue = JSON.parse(val);
             }
@@ -218,8 +220,9 @@ export class XtalTextAreaMD extends XtalTextInputMD {
     set value(val) {
         if (val === this._value)
             return;
+        this._tempVal = val;
         super.value = val;
-        this.afterInitRenderCallback();
+        // this.afterInitRenderCallback();
     }
     emitEvent() {
         const val = this.inputElement ? this.inputElement.value : this._value;
