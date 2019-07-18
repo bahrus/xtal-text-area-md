@@ -179,6 +179,16 @@ export class XtalTextAreaMD extends XtalTextInputMD{
       }
       super.attributeChangedCallback(n, ov, nv);
     }
+    connectedCallback(){
+      this.propUp(['coerceToJSON']);
+      super.connectedCallback();
+      if(this.coerceToJSON){
+        const val = this.inputElement.value;
+        try{
+          this.objectValue = JSON.parse(val);
+        }catch(e){}
+      }
+    }
     _coerceToJSON = false;
     get coerceToJSON(){
       return this._coerceToJSON;
