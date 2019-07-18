@@ -212,6 +212,11 @@ export class XtalTextAreaMD extends XtalTextInputMD{
         objectValue: nv
       })
     }
+
+    set value(val: string) {
+      super.value = val;
+      this.afterInitRenderCallback();
+    }
     emitEvent() {
       const val = this.inputElement.value;
       this.value = val;
