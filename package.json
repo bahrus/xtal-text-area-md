@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "trans-render": "0.0.126",
-    "xtal-element": "0.0.77",
-    "xtal-text-input-md": "0.0.5"
+    "xtal-element": "0.0.78",
+    "xtal-text-input-md": "0.0.6"
   },
   "devDependencies": {
     "xtal-test": "0.0.19"
