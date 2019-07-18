@@ -218,7 +218,7 @@ export class XtalTextAreaMD extends XtalTextInputMD{
       this.afterInitRenderCallback();
     }
     emitEvent() {
-      const val = this.inputElement.value;
+      const val = this.inputElement ? this.inputElement.value : this._value;
       this.value = val;
       if(this._coerceToJSON){
         try{
