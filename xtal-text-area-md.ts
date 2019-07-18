@@ -214,6 +214,7 @@ export class XtalTextAreaMD extends XtalTextInputMD{
     }
 
     set value(val: string) {
+      if(val === this._value) return;
       super.value = val;
       this.afterInitRenderCallback();
     }
