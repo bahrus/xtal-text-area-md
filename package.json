@@ -1,6 +1,6 @@
 {
   "name": "xtal-text-area-md",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "material text area",
   "main": "xtal-text-area-md.js",
   "scripts": {
