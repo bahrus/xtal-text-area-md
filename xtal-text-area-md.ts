@@ -179,7 +179,7 @@ export class XtalTextAreaMD extends XtalTextInputMD{
       }
       super.attributeChangedCallback(n, ov, nv);
     }
-    initRenderCallback(){
+    afterInitRenderCallback(){
       if(this.coerceToJSON){
         const val = this.inputElement.value;
         try{
